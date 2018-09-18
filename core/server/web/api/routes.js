@@ -219,5 +219,8 @@ module.exports = function apiRoutes() {
     // ## Oembed (fetch response from oembed provider)
     apiRouter.get('/oembed', mw.authenticatePrivate, api.http(api.oembed.read));
 
+    apiRouter.post('/mail/contact', api.http(api.mail.sendContact));
+    apiRouter.get('/mail/newsletter/:recipients', api.http(api.mail.sendNewsletter));
+
     return apiRouter;
 };
